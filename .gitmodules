@@ -1,12 +1,12 @@
 [submodule "optimism-monorepo"]
 	path = optimism-monorepo
-	url = https://github.com:ethereum-optimism/optimism-monorepo.git
+	url = https://github.com/ethereum-optimism/optimism-monorepo.git
 [submodule "go-ethereum"]
 	path = go-ethereum
-	url = https://github.com:ethereum-optimism/go-ethereum.git
+	url = https://github.com/ethereum-optimism/go-ethereum.git
 [submodule "integration-tests"]
 	path = integration-tests
-	url = https://github.com:ethereum-optimism/integration-tests.git
+	url = https://github.com/ethereum-optimism/integration-tests.git
 [submodule "docker"]
 	path = docker
-	url = https://github.com:ethereum-optimism/docker.git
+	url = https://github.com/ethereum-optimism/docker.git
