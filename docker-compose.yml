@@ -2,13 +2,6 @@ version: "3"
 
 services:
 
-  integration_tests:
-    image: ethereumoptimism/integration-tests:${INTEGRATION_TESTS_TAG:-latest}
-    env_file:
-      - ./docker-compose.env
-    environment:
-      - "PKGS=${PKGS}"
-
   l1_chain:
     image: ethereumoptimism/hardhat:${L1_CHAIN_TAG:-latest}
     ports:
