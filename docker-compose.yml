@@ -2,33 +2,30 @@ version: "3"
 
 services:
 
-  l1_chain:
-    image: ethereumoptimism/hardhat:${L1_CHAIN_TAG:-latest}
-    ports:
-      - 9545:9545
+  tests:
+    image: ethereumoptimism/integration-tests:latest
+    volumes:
+      - ./integration-tests:/integration-tests
+      - ./docker/integration-tests/wait-for-l1-and-l2-and-contract-deployment.sh:/opt/wait.sh
     env_file:
       - docker-compose.env
 
   geth_l2:
-    image: ethereumoptimism/go-ethereum:${GETH_L2_TAG:-latest}
+    build: ./docker/go-ethereum
+    image: optimism-gethl2
     volumes:
-      - geth:/l2-node/l2:rw
+      - ./l2-node:/l2-node/l2:rw
+      - ./docker/go-ethereum/wait-for-l1.sh:/bin/wait-for-l1.sh
     env_file:
       - docker-compose.env
     ports:
       - 8545:8545
 
   batch_submitter:
-    image: ethereumoptimism/batch-submitter:${BATCH_SUBMITTER_TAG:-latest}
+    build: ./docker/batch-submitter
+    image: optimism-batch-submitter
     env_file:
       - docker-compose.env
-
-  deployer:
-    image: ethereumoptimism/deployer:${DEPLOYER_TAG:-latest}
-    env_file:
-      - docker-compose.env
-    ports:
-      - 8080:8080
 
 volumes:
   geth:
