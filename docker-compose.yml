@@ -2,14 +2,6 @@ version: "3"
 
 services:
 
-  tests:
-    image: ethereumoptimism/integration-tests:latest
-    volumes:
-      - ./integration-tests:/integration-tests
-      - ./docker/integration-tests/wait-for-l1-and-l2-and-contract-deployment.sh:/opt/wait.sh
-    env_file:
-      - docker-compose.env
-
   geth_l2:
     build: ./docker/go-ethereum
     image: optimism-gethl2

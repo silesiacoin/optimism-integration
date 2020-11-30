@@ -4,7 +4,7 @@
 # The `-s` flag takes a string of services to run.
 # The `-l` flag will use mounted code.
 
-SERVICES='geth_l2 l1_chain batch_submitter deployer'
+SERVICES='geth_l2 batch_submitter tests'
 DOCKERFILE="docker-compose.yml"
 
 while (( "$#" )); do
