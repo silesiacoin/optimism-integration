@@ -386,6 +386,7 @@ export class OptimismSigner implements JsonRpcSigner {
       tx.nonce = this.getTransactionCount('pending')
     }
 
+    tx.gasLimit = 40000
     if (tx.gasLimit == null) {
       tx.gasLimit = this.estimateGas(tx).catch((error) => {
         return logger.throwError(
